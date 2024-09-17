@@ -1,11 +1,7 @@
 import subprocess
 import sys
 from time import time
-
-GREEN   = '\033[92m'
-WHITE   = '\033[97m'
-RESET   = '\033[0m'
-RED     = '\033[91m'
+from colorama import Fore, Style
 
 def uploadsESP32S3(port):
     start = time()
@@ -42,10 +38,10 @@ def uploadsESP32S3(port):
                 raise subprocess.CalledProcessError(process.returncode, pushOS)
         end = time()
         total = end - start
-        print(f"\n========================= [{GREEN}SUCCESS{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.GREEN}SUCCESS{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
     except subprocess.CalledProcessError as e:
         print("ERROR\n", e, flush=True)
         print("ERROR\n", e.stderr, flush=True)
         end = time()
         total = end - start
-        print(f"\n========================= [{RED}FAILED{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.RED}FAILED{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)

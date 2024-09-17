@@ -1,11 +1,7 @@
 import os
 from pathlib import Path
 from time import time # type: ignore
-
-GREEN   = '\033[92m'
-WHITE   = '\033[97m'
-RESET   = '\033[0m'
-RED     = '\033[91m'
+from colorama import Fore, Style
 
 def initDirectory():
     start = time()
@@ -24,4 +20,4 @@ def initDirectory():
     print("SUCCESS create directory package", flush=True)
     end = time()
     total = end - start
-    print(f"\n========================= [{GREEN}SUCCESS{RESET}] Took {total:.2f} seconds =========================", flush=True)
+    print(f"\n========================= [{Fore.GREEN}SUCCESS{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)

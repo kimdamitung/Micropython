@@ -3,11 +3,7 @@ from bs4 import BeautifulSoup
 import os
 import sys
 import time  # type: ignore
-
-GREEN   = '\033[92m'
-WHITE   = '\033[97m'
-RESET   = '\033[0m'
-RED     = '\033[91m'
+from colorama import Fore, Style
 
 def esp8266():
     pass
@@ -37,14 +33,14 @@ def esp_wroom_32(url = "https://micropython.org/download/ESP32_GENERIC/"):
             end = time.time()
             total = end - start
             print(f"Downloaded Firmware SUCCESS: {bin_path}", flush = True)
-            print(f"\n========================= [{GREEN}SUCCESS{RESET}] Took {total:.2f} seconds =========================", flush=True)
+            print(f"\n========================= [{Fore.GREEN}SUCCESS{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
         else:
             raise Exception("Download Firmware FAILED: No download link found for .bin")
     except Exception as e:
         end = time.time()
         total = end - start
         print(f"ERROR: {e}", flush = True)
-        print(f"\n========================= [{RED}FAILED{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.RED}FAILED{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
         
 def esp32s3(url = "https://micropython.org/download/ESP32_GENERIC_S3/"):
     directory = os.path.join('src', 'firmware')
@@ -71,11 +67,11 @@ def esp32s3(url = "https://micropython.org/download/ESP32_GENERIC_S3/"):
             end = time.time()
             total = end - start
             print(f"Downloaded Firmware SUCCESS: {bin_path}", flush=True)
-            print(f"\n========================= [{GREEN}SUCCESS{RESET}] Took {total:.2f} seconds =========================", flush=True)
+            print(f"\n========================= [{Fore.GREEN}SUCCESS{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
         else:
             raise Exception("Download Firmware FAILED: No download link found for .bin")
     except Exception as e:
         end = time.time()
         total = end - start
         print(f"ERROR: {e}", flush=True)
-        print(f"\n========================= [{RED}FAILED{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.RED}FAILED{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)

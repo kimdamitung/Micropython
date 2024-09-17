@@ -1,11 +1,7 @@
 import subprocess
 import sys
 from time import time, sleep
-
-GREEN   = '\033[92m'
-WHITE   = '\033[97m'
-RESET   = '\033[0m'
-RED     = '\033[91m'
+from colorama import Fore, Style
 
 def helpCommands():
     print("micropython v1.0.0")
@@ -33,7 +29,7 @@ def helpCommands():
 def processing(iteration, total, length = 40):
     percent = ("{0:.1f}").format(100 * (iteration / float(total)))
     filled_length = int(length * iteration // total)
-    bar = '<' + GREEN + '=' * filled_length + WHITE + '-' * (length - filled_length) + RESET + '>'
+    bar = '<' + Fore.GREEN + '=' * filled_length + Fore.WHITE + '-' * (length - filled_length) + Fore.RESET + '>'
     sys.stdout.write(f'\r[{bar}] {percent}% Complete')
     sys.stdout.flush()
 
@@ -53,13 +49,13 @@ def sendMain(port):
             raise subprocess.CalledProcessError(process.returncode, command)
         end = time()
         total = end - start
-        print(f"\n========================= [{GREEN}SUCCESS{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.GREEN}SUCCESS{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
     except subprocess.CalledProcessError as e:
         print("\nERROR\n", e, flush=True)
         print("ERROR\n", e.stderr, flush=True)
         end = time()
         total = end - start
-        print(f"\n========================= [{RED}FAILED{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.RED}FAILED{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
 
 def sendPackage(port):
     start = time()
@@ -77,13 +73,13 @@ def sendPackage(port):
             raise subprocess.CalledProcessError(process.returncode, command)
         end = time()
         total = end - start
-        print(f"\n========================= [{GREEN}SUCCESS{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.GREEN}SUCCESS{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
     except subprocess.CalledProcessError as e:
         print("\nERROR\n", e, flush=True)
         print("ERROR\n", e.stderr, flush=True)
         end = time()
         total = end - start
-        print(f"\n========================= [{RED}FAILED{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.RED}FAILED{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
         
 def serialMonitor(port):
     start = time()
@@ -94,7 +90,7 @@ def serialMonitor(port):
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         end = time()
         total = end - start
-        print(f"\n========================= [{GREEN}SUCCESS{RESET}] Took {total:.2f} seconds =========================", flush=True)
+        print(f"\n========================= [{Fore.GREEN}SUCCESS{Fore.RESET}] Took {total:.2f} seconds =========================", flush=True)
         for line in iter(process.stdout.readline, b''):
             print(line.decode('utf-8').strip())
         process.wait()
