@@ -1,4 +1,5 @@
-pyinstaller --onefile --windowed main.py
+pyinstaller --onefile --windowed micropython.py
+pyinstaller --onefile --console micropython.py
 pyinstaller main.spec
 
 main.spec

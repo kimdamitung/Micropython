@@ -1,7 +1,29 @@
 import subprocess
 import sys
 from time import time, sleep
-import shutil
+
+def helpCommands():
+    print("micropython v1.0.0")
+    print("usage: micropython [--help]")
+    print("                   [--check]")
+    print("                   [--init]")
+    print("                   [--init] [device]")
+    print("                   [--uploads] [device] [port]")
+    print("                   [--send] [type] [port]")
+    print("                   [--serials] [port]")
+    print("positional arguments: {device, type, port}")
+    print("     device  :       [esp32, esp32s3, esp8266]")
+    print("     type    :       [main, package]")
+    print("     port    :       [COMx]")
+    print("                     x is number")
+    print("optional arguments: {--help, --check, --init, --uploads, --send, --serials}")
+    print("     --help          show this help message and guide")
+    print("     --check         check port COMx")
+    print("     --init          init directory or init derectory to device")
+    print("     --uploads       uploads file to device with port COMx")
+    print("     --send          send file to device with port COMx")
+    print("     --serials       monitor serial port with port COMx")
+    print("")
 
 def processing(iteration, total, length = 40):
     percent = ("{0:.1f}").format(100 * (iteration / float(total)))

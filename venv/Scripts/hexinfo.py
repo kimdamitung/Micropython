@@ -1,4 +1,4 @@
-#!E:\build_system_esp32\micropython\micropython\venv\Scripts\python.exe
+#!E:\build_system_esp32\micropython\venv\Scripts\python.exe
 
 # Copyright (c) 2015 Andrew Fernandes <andrew@fernandes.org>
 # All rights reserved.
