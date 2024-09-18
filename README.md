@@ -5,71 +5,58 @@ pip install -r requirements.txt
 ```
 > Nhớ dẫn tới thư mục chứa requirements.txt để kích hoạt
 ## 2. Thiết lập môi trường
-### 2.1. Lưu trữ môi trường
-> Giải nén thì folder có tên Micropython-master
 
-![1725275761620](image/README/1725275761620.png)
-> Lưu môi trường vào một nơi bất kỳ trên ổ đĩa của máy tính
-### 2.2. Chỉnh sửa file batch của môi trường
-> Đường dẫn file batch: Micropython-master\build\micropython.bat
-
-![1725276435824](image/README/1725276435824.png)
-
-<span style = "font-size: 20px">Sử dụng bất kì editer nào để chỉnh sử file micropython.bat</span>
+### 2.1. Download file hoặc git clone về
 
 ```bash
-rem Tạo project MicroPython cho ESP32
-if "%1" == "mkdir" (
-    if "%2" == "esp32" (
-        mkdir src && cd src && copy "E:\build_system_esp32\micropython\main\main.py" main.py && python E:/build_system_esp32/micropython/esp32.py && mkdir package && cd ..
-    ) else if "%2" == "esp32s2" (
-        mkdir src && cd src && copy "E:\build_system_esp32\micropython\main\main.py" main.py && python E:/build_system_esp32/micropython/esp32s2.py && mkdir package && cd ..
-    ) else if "%2" == "esp32s3" (
-        mkdir src && cd src && copy "E:\build_system_esp32\micropython\main\main.py" main.py && python E:/build_system_esp32/micropython/esp32s3.py && mkdir package && cd ..
-    ) else (
-        echo Invalid project type. Use esp32, esp32s2, or esp32s3.
-    )
-    goto eof
-)
+git clone https://github.com/kimdamitung/Micropython
 ```
 
-> Thay đổi dường dẫn E:/build_system_esp32/micropython/ bản gốc thành đường dẫn cụ thể của bạn
+> Hoặc
 
-<span style = "font-size: 20px">Đường dẫn cụ thể chính xác là Micropython-master\ để dẫn tới file tạo project(thay thế E:/build_system_esp32/micropython/ bản gốc) và Micropython-master\main (thay thế E:\build_system_esp32\micropython\main\ bản gốc) tùy vào đường dẫn</span>
+![1726629029100](image/README/1726629029100.png)
 
-### 2.3. Thêm môi trường vào system 
+Sau khi download xong thì giải nén thông qua phần mền WinRAR nếu chưa có lo mà cài !!!
 
-<span style = "font-size: 20px">Copy đường dẫn chứa file micropython.bat đường dẫn có thể là Micropython-master\build (thay thế E:\build_system_esp32\micropython\build\ bản gốc)</span>
+### 2.2. Add path cho micropython
 
-> Ấn nút Window trên phím tắt gõ variables
+Bước 1: Nút Window, search variables
 
-![1725377723123](image/README/1725377723123.png)
+![1726629174205](image/README/1726629174205.png)
 
-> Giao diện:  Chọn Environment Variables...
+Bước 2: Cửa sổ xuất hiện
 
-![1725377802368](image/README/1725377802368.png)
+![1726629204244](image/README/1726629204244.png)
 
-> Giao diện: System variables -> Path -> click chuột 2 lần
+> Chọn Environments Variables...
 
-![1725377860232](image/README/1725377860232.png)
+![1726629259803](image/README/1726629259803.png)
 
-> Giao diện: Vào nút New or click 2 lần các khung trắng ngang để tạo path môi trường mới, gán đường dẫn tới file micropython.bat
+Bước 3: Trỏ con chuột vào path ở mục System variables, chọn Edit
 
-![1725377953348](image/README/1725377953348.png)
+![1726629348135](image/README/1726629348135.png)
 
-> Giao diện: OK tất cả để hoàn tất
+Bước 4: New > Micropython-master/dist
 
-<span style = "font-size: 20px">Mở terminal (Command Prompt) để kiểm tra môi trường</span>
+![1726629406791](image/README/1726629406791.png)
 
-> Gõ micropython
+Bước 5: Ok mọi giao diện 
 
-```bash
-micropython
-```
+### 2.3. Kiểm thử môi trường micropython trên máy tính windows
 
-![1725378134342](image/README/1725378134342.png)
+Bước 1: Nút Windows, search cmd, chọn Command Prompt
 
-> Nếu kết quả như hình ở trên thì cài môi trường thành công, còn nếu sai thì cài lại từ mục 2.3
+![1726629516008](image/README/1726629516008.png)
+
+Bước 2: Gõ micropython và ấn Enter
+
+![1726629605759](image/README/1726629605759.png)
+
+> Nếu hiện như vậy là đã chạy thành công, còn nếu kết quả như sau
+
+![1726629679492](image/README/1726629679492.png)
+
+> Thì hảy thực hiện lại từ mục 2
 
 ## 3. Sử dụng Visual Studio Code để viết tạo chương trình micropython
 
