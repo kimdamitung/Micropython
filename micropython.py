@@ -2,7 +2,7 @@ from package.port.port import testingPortSerial
 from package.port.options import sendMain, sendPackage, serialMonitor, helpCommands
 from package.firmware.firmware import esp_wroom_32, esp32s3
 from package.directory import initDirectory
-from package.uploads.uploads import uploadsESP32S3
+from package.uploads.uploads import uploadsESP32S3, uploadsESP32WROOM
 from argparse import ArgumentParser
 from colorama import init
 import sys
@@ -36,7 +36,7 @@ if args.check:
 if args.uploads:
     device, port = args.uploads
     if device == "esp32":
-        pass
+        uploadsESP32WROOM(port)
     elif device == "esp32s3":
         uploadsESP32S3(port)
     elif device == "esp8266":
