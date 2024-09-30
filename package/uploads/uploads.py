@@ -3,6 +3,9 @@ import sys
 from time import time
 from colorama import Fore, Style
 
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
+
 def uploadsESP32WROOM(port):
     start = time()
     try:
@@ -25,7 +28,7 @@ def uploadsESP32WROOM(port):
             'python', '-m', 'esptool',
             '--chip', 'esp32',
             '--port', port,
-            '--baud', '460800'
+            '--baud', '460800',
             'write_flash', '-z', '0x1000', 'src/firmware/ESP32_GENERIC-20240602-v1.23.0.bin'
         ]
         with subprocess.Popen(pushOS, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) as process:
