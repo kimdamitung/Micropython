@@ -4,7 +4,7 @@ from package.firmware.firmware import esp_wroom_32, esp32s3
 from package.directory import initDirectory
 from package.uploads.uploads import uploadsESP32S3, uploadsESP32WROOM
 from argparse import ArgumentParser
-from colorama import init
+from colorama import init # type: ignore
 import sys
 init()
 parser = ArgumentParser(description="Micropython", add_help = False)
