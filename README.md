@@ -90,3 +90,86 @@ Bước 2: Gõ micropython và ấn Enter
 ```
 
 > Giao diện: đó là đường dẫn cục bộ, hãy thay thế nó thành đường dẫn ở máy tính của bạn
+
+
+# Hướng dẫn cài môi trường trên command line interface
+
+## Bước 1: Cài đăt SDK cho vi điều khiển (esp32, esp8266, rp2040, ...)
+
+[Trang web download](https://micropython.org/download/)
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+> Click vào chọn dòng vi điều khiển
+
+![alt text](image-2.png)
+
+> Giả sử chọn dòng esp32, kéo xuống dưới hiện ra những loại chip 
+
+![alt text](image-3.png)
+
+> Chọn ESP32S3 làm ví dụ
+
+![alt text](image-4.png)
+
+> Làm theo hướng dẫn từ hãng trên website (còn không biết thì search gg đi)
+
+## Bước 2: Cài thư viện cần thiết để giao tiếp với vi điều khiển
+
+### 2.1: Cài python3 (mới nhất)
+
+### 2.2: Cài các lib quan trọng
+
+- Thư viện để flash vi điều khiển
+
+```bash
+pip install esptool
+```
+
+- Thư viện để đẩy file python qua vi điều khiển
+
+```bash
+pip install adafruit-ampy
+```
+
+- Ví dụ:
+
+```bash
+ampy -p COMx put main.py
+```
+
+- Thư viện để remote vào vi điều khiển
+
+```bash
+pip install mpfshell
+```
+
+- Ví dụ 
+
+```bash
+mpfshell COMx
+```
+
+> Chú ý: hiện tại khi cài và chạy mpfshell sẽ bị lỗi
+
+![alt text](image-5.png)
+
+- Cách khắc phục 
+
+```bash
+pip install telnetlib3
+```
+
+![alt text](image-6.png)
+
+Vào `..\Lib\site-packages\mp\contelnet.py` để sửa 
+
+![alt text](image-7.png)
+
+Nhớ lưu
+
+![alt text](image-8.png)
+
+Như vậy là thành công
